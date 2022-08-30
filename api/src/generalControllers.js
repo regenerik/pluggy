@@ -80,8 +80,19 @@ async function getCronistaData(){
 
 }
 
+//------------------------Promedio-------------------------
 
+const averageForAll = async()=>{
+    const quotes = await Quotes.findAll()
+    console.log(quotes)
+    const acum = 0
+    let average_buy_price = parseFloat(((quotes.reduce((sum,ele)=> sum += ele.dataValues.buy_price,acum))/3).toFixed(2))
+    let average_sell_price = parseFloat(((quotes.reduce((sum,ele)=> sum += ele.dataValues.sell_price,acum))/3).toFixed(2))
+    console.log(typeof average_sell_price)
+    return {average_buy_price,average_sell_price};
+}
 
 module.exports={
-    scraping
+    scraping,
+    averageForAll
 }
