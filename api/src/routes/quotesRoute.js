@@ -4,10 +4,7 @@ const {Quotes} = require("../db")
 
 router.get("/",async(req,res)=>{
 
-    const AverQueCarajoTiene = await Quotes.findAll()
-    console.log(AverQueCarajoTiene[0])
-    res.send(AverQueCarajoTiene)
-    //res.send(await Quotes.findAll())
+    res.send(await Quotes.findAll())
     
 });
 

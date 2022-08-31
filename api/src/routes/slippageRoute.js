@@ -9,10 +9,9 @@ router.get("/",async(req,res)=>{
 
 
     quotes = quotes.map((e)=>{
-        console.log(e)
         return{
-            buy_price_slippage:(e.dataValues.buy_price - averages.average_buy_price).toFixed(2),
-            sell_price_slippage:(e.dataValues.sell_price - averages.average_sell_price).toFixed(2),
+            buy_price_slippage:parseFloat((e.dataValues.buy_price - averages.average_buy_price).toFixed(2)),
+            sell_price_slippage:parseFloat((e.dataValues.sell_price - averages.average_sell_price).toFixed(2)),
             source: e.dataValues.source
         }
     })

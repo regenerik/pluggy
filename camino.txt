@@ -88,3 +88,26 @@ network - https://www.cronista.com/pieces/markets/id_draggable-1609816492000-835
 back vanilla terminado 30 / 08
 
 
+-------------------------------------------------------------------------------
+index inicia el servidor  en 3001 y ejecuta la funcion scraping que se encarga, 
+desde el general controllers que se encuentra en src, de hacer el raspado" de informacion de las páginas indicadas.
+Además de requerir el general controllers requiere tambien "app" de src que contiene 
+toda la información pertinente a la activación del servidor para luego ejecutarlo
+
+
+     "axios": "^0.27.2",              pedidos async html
+     "body-parser": "^1.19.0",        permite tener acceso al objeto req
+     "cheerio": "^1.0.0-rc.12",       scraping
+     "cookie-parser": "^1.4.5",       analiza el encabezado Cookie y rellena req. cookies
+     "cors": "^2.8.5",                Característica de seguridad del navegador que restringe las solicitudes HTTP 
+     "dotenv": "^8.2.0",              variables de entorno (guardar las contraseñas o info de forma segura )
+     "express": "^4.17.1",            framework de node proporciona mecanismos para peticios http en diferentes url
+     "ioredis": "^4.19.2",            ???
+     "jsonwebtoken": "^8.5.1",	      Para crear un token que sirva para enviar datos entre aplicaciones o servicios y garantizar que sean válidos y seguros
+     "morgan": "^1.10.0",             iddleware de nivel de solicitud HTTP. Es una gran herramienta que registra las requests
+     "pg": "^8.5.1",                  posgres db
+     "sequelize": "^6.3.5"            db
+
+
+
+

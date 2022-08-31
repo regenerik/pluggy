@@ -29,7 +29,7 @@ const scraping = async():Promise<void> =>{
                 Quotes.update(cronista, {where:{source:cronistaUrl}})
             }
             console.log("Scraped")
-          }, 4000);
+          }, 10000);
 
     }catch(err: any){
         console.log(err.message)
