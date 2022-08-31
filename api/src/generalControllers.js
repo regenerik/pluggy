@@ -17,6 +17,8 @@ const scraping = async() =>{
                 await Quotes.bulkCreate([ambito,dolarHoy,cronista])
             }else{
                 Quotes.update(ambito, {where:{source:ambitoUrl}})
+                Quotes.update(dolarHoy, {where:{source:dolarHoyUrl}})
+                Quotes.update(cronista, {where:{source:cronistaUrl}})
             }
             console.log("Scraped")
           }, 4000);

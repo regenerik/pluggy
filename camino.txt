@@ -43,7 +43,7 @@ nodejs - axios - npm - cheerio - typescript - expressjs (revisar request-promise
 6 - Instalar browserRouter en front
 7 - Instalar Route en front
 8 - Instalar Redux en front ( ver que es REDUX-SAGA )
-9 - Una vez definida la estructura src/client
+9 - Una vez definida la estructura src/client ( ejemplo web scraping )
 	-Crear un index.js que ejecute el servidor:
 	const PORT = 8000
 	const axios = require("axios")
@@ -74,7 +74,7 @@ nodejs - axios - npm - cheerio - typescript - expressjs (revisar request-promise
 
 	app.listen(PORT, ()=> console.log(`server runing on Port ${PORT}`))
 	
-
+10 - rutas
 -------------------------------------------------------------------------------
 pedidos de las paginas : 
 
@@ -85,4 +85,6 @@ scraping - https://dolarhoy.com/cotizaciondolarblue   +  const valor = $('.value
 network - https://www.cronista.com/pieces/markets/id_draggable-1609816492000-835525__p_2/
 
 -------------------------------------------------------------------------------
+back vanilla terminado 30 / 08
+
 

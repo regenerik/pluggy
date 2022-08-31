@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 const {Quotes} = require("../db")
-const { averageForAll } = require("../generalControllers.js")
+const { averageForAll } = require("../generalControllerss.js")
 
 router.get("/",async(req,res)=>{
     let quotes = await Quotes.findAll()
