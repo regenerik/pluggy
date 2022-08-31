@@ -110,6 +110,7 @@ function getAmbitoData() {
         });
     });
 }
+
 function getDolarHoyData() {
     return __awaiter(this, void 0, void 0, function () {
         var dolarHoyData, $, dolarHoyStr, articulo, err_2;
