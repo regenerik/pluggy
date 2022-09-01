@@ -35,15 +35,15 @@ desde cero:
 
 nodejs - axios - npm - cheerio - typescript - expressjs (revisar request-promise)
 
-1 x npx create-react-app pluggy
+1 x front : npx create-react-app clients --template typescript
 2 x Analizar la estructura y comparar con back de p.i/instalar express en back:
 3 x Instalar axios en back nodemon: npm i -g nodemon /nodemon index.js
 4 x Instalar cheerio en back
-5 x Instalar typescript en back y front
+5 x Instalar typescript en back
 6 - Instalar browserRouter en front
-7 - Instalar Route en front
-8 - Instalar Redux en front ( ver que es REDUX-SAGA )
-9 - Una vez definida la estructura src/client ( ejemplo web scraping )
+7 x Instalar Route en front
+8 x Instalar Redux en front ( ver que es REDUX-SAGA )
+9 x Una vez definida la estructura src/client ( ejemplo web scraping )
 	-Crear un index.js que ejecute el servidor:
 	const PORT = 8000
 	const axios = require("axios")
@@ -74,7 +74,7 @@ nodejs - axios - npm - cheerio - typescript - expressjs (revisar request-promise
 
 	app.listen(PORT, ()=> console.log(`server runing on Port ${PORT}`))
 	
-10 - rutas
+10 x rutas
 -------------------------------------------------------------------------------
 pedidos de las paginas : 
 
@@ -107,6 +107,39 @@ toda la información pertinente a la activación del servidor para luego ejecuta
      "morgan": "^1.10.0",             iddleware de nivel de solicitud HTTP. Es una gran herramienta que registra las requests
      "pg": "^8.5.1",                  posgres db
      "sequelize": "^6.3.5"            db
+
+------------------------------------------------------------------------------
+Front TIMEEEE ! ! ! !
+
+npm i react-router-dom
+npm i Routes
+npm i react-redux
+npm i redux
+npm i redux-thunk
+npm i redux-devtools-extension
+
+1 ) en index importar provider:                import { Provider } from "react-redux"
+2 ) en index importar store:                   import  store  from "./redux/store"
+3 ) en index como siempre envolver app en el:  <Provider store={store}></Provider>
+4 ) en src crear carpeta redux conteniendo:
+	actions.tsx
+	reducer.tsx
+	store.tsx
+5 ) en app.js importar:     import { BrowserRouter, Route, Routes } from "react-router-dom";
+6 ) importar las paginas:   import Landing from "./pages/Landing"
+7 ) Rodear todo en return de:( 
+			      <BrowserRouter>
+				<Routes>
+				  <Route path="/" element={<Landing />}/>
+				</Routes>
+			      </BrowserRouter>
+			     )
+8 ) en app no te olvides de : export default App; ( al final de la pag )
+
+
+
+
+
 
 
 
