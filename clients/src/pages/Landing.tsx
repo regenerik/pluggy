@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAppDispatch } from '../redux/hooks'
 import { getInfoDollarBlue } from '../redux/actions'
 import style from "./Landing.module.css"
@@ -11,10 +11,17 @@ import Article from '../components/Article/Article'
 
 const Landing = () => {
 
-  const [actual,setActual] = useState("quotes")
-
   const dispatch = useAppDispatch()
 
+  //Menú:
+  const [actual,setActual] = useState("quotes")
+
+  //Carga primaria:
+  useEffect(() => {
+    dispatch(getInfoDollarBlue())
+  }, [dispatch])
+
+  //Actualización cada 15 sgs:
   setInterval(()=>{
     dispatch(getInfoDollarBlue())
   }, 15000);
