@@ -1,11 +1,16 @@
+import { GET_INFO_DOLLAR_BLUE } from "./actions";
+
+
+
 const initialState = {
-    ArrayState: [],
-    ObjectState:{},
+    quotes: [],
+    average:{},
+    slippage:[],
 }
 
 function reducer(state= initialState, {type,payload}){
     switch(type){
-        case "SOMETHING":
+        case GET_INFO_DOLLAR_BLUE:
             return{
                 ...state,
             }
