@@ -1,17 +1,23 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useAppDispatch } from '../redux/hooks'
+import { getInfoDollarBlue } from '../redux/actions'
 import style from "./Landing.module.css"
 import Navbar from '../components/Navbar/Navbar'
 import Footer from '../components/Footer/Footer'
 import Sidebar from '../components/Sidebar/Sidebar'
 import Header from '../components/Header/Header'
 import Article from '../components/Article/Article'
-// import { useDispatch, useSelector } from 'react-redux'
 
-// const dispatch = useDispatch()
 
 const Landing = () => {
 
+  const [actual,setActual] = useState("quotes")
 
+  const dispatch = useAppDispatch()
+
+  setInterval(()=>{
+    dispatch(getInfoDollarBlue())
+  }, 15000);
 
   return (
     <div className={style.bd}>
@@ -20,10 +26,10 @@ const Landing = () => {
           <Header />
         </header>
         <nav className={style.navbar}>
-          <Navbar />
+          <Navbar setActual={setActual} />
         </nav>
         <article className={style.content}>
-          <Article />
+          <Article actual={actual}/>
         </article>
         <aside className={style.side}>
           <Sidebar />

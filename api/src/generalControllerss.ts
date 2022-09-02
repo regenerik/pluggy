@@ -4,11 +4,13 @@ const {Quotes} = require("./db");
 const ambitoUrl: string = "https://mercados.ambito.com//dolar/informal/variacion"
 const dolarHoyUrl: string = "https://dolarhoy.com/cotizaciondolarblue"
 const cronistaUrl: string = "https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB"
+const ambitoUrlShow: string = "https://www.ambito.com/contenidos/dolar-informal.html"
 
 interface Article {
     buy_price?: number;
     sell_price?: number;
     source?: string;
+    name?:string;
 } 
 
 
@@ -42,7 +44,8 @@ async function getAmbitoData():Promise<Article |undefined>{
         const articulo: Article ={
             buy_price:parseFloat(ambitoData.compra.replace(",",".")),
             sell_price:parseFloat(ambitoData.venta.replace(",",".")),
-            source: ambitoUrl
+            source: ambitoUrlShow,
+            name:"Ámbito Financiero"
         }
         return articulo
     }catch(err:any){
@@ -60,7 +63,8 @@ async function getDolarHoyData():Promise<Article |undefined>{
         const articulo: Article ={
             buy_price: parseFloat(dolarHoyStr.slice(1,7)),
             sell_price: parseFloat(dolarHoyStr.slice(8,14)),
-            source: dolarHoyUrl
+            source: dolarHoyUrl,
+            name:"Dolar Hoy"
         }
         return articulo;
     }catch(err:any){
@@ -80,7 +84,8 @@ async function getCronistaData():Promise<Article |undefined>{
         const articulo: Article ={
             buy_price: parseFloat(cronistaBuy.slice(1,7)),
             sell_price: parseFloat(cronistaSell.slice(1,7)),
-            source: cronistaUrl
+            source: cronistaUrl,
+            name: "El Cronista"
         }
         return articulo
     }catch(err:any){

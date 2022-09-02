@@ -1,0 +1,13 @@
+.cardQuotes{
+    background-color: rgb(173, 173, 173);
+    border-radius: 1vh;
+    gap: 1vh;
+    padding: 2vh;
+    margin: 2vh;
+}
+
+.contenedorCotiz{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}

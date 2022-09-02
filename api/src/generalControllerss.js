@@ -41,6 +41,7 @@ var Quotes = require("./db").Quotes;
 var ambitoUrl = "https://mercados.ambito.com//dolar/informal/variacion";
 var dolarHoyUrl = "https://dolarhoy.com/cotizaciondolarblue";
 var cronistaUrl = "https://www.cronista.com/MercadosOnline/moneda.html?id=ARSB";
+var ambitoUrlShow = "https://www.ambito.com/contenidos/dolar-informal.html";
 var scraping = function () { return __awaiter(_this, void 0, void 0, function () {
     var _this = this;
     return __generator(this, function (_a) {
@@ -77,7 +78,7 @@ var scraping = function () { return __awaiter(_this, void 0, void 0, function ()
                             return [2 /*return*/];
                     }
                 });
-            }); }, 4000);
+            }); }, 60000);
         }
         catch (err) {
             console.log(err.message);
@@ -98,7 +99,8 @@ function getAmbitoData() {
                     articulo = {
                         buy_price: parseFloat(ambitoData.compra.replace(",", ".")),
                         sell_price: parseFloat(ambitoData.venta.replace(",", ".")),
-                        source: ambitoUrl
+                        source: ambitoUrlShow,
+                        name: "Ámbito Financiero"
                     };
                     return [2 /*return*/, articulo];
                 case 2:
@@ -110,7 +112,6 @@ function getAmbitoData() {
         });
     });
 }
-
 function getDolarHoyData() {
     return __awaiter(this, void 0, void 0, function () {
         var dolarHoyData, $, dolarHoyStr, articulo, err_2;
@@ -126,7 +127,8 @@ function getDolarHoyData() {
                     articulo = {
                         buy_price: parseFloat(dolarHoyStr.slice(1, 7)),
                         sell_price: parseFloat(dolarHoyStr.slice(8, 14)),
-                        source: dolarHoyUrl
+                        source: dolarHoyUrl,
+                        name: "Dolar Hoy"
                     };
                     return [2 /*return*/, articulo];
                 case 2:
@@ -154,7 +156,8 @@ function getCronistaData() {
                     articulo = {
                         buy_price: parseFloat(cronistaBuy.slice(1, 7)),
                         sell_price: parseFloat(cronistaSell.slice(1, 7)),
-                        source: cronistaUrl
+                        source: cronistaUrl,
+                        name: "El Cronista"
                     };
                     return [2 /*return*/, articulo];
                 case 2:

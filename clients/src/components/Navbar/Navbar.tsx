@@ -1,22 +1,24 @@
-import React from 'react'
+//import React from 'react'
 import style from "./Navbar.module.css"
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
-const Navbar = () => {
+interface props{
+  setActual:any;
+}
 
+const Navbar = ({setActual}:props) => {
 
-  
   return (
     <div className={style.Nav}>
           <ul>
               <li>
-                <Link to="">Nav1</Link>
+                <button onClick={()=>setActual("quotes")}>Quotes</button>
               </li>
               <li>
-                <Link to="">Nav2</Link>
+                <button onClick={()=>setActual("average")}>Average</button>
               </li>
               <li>
-                <Link to="">Nav3</Link>
+              <button onClick={()=>setActual("slippage")}>Slip Page</button>
               </li>
             </ul>
     </div>

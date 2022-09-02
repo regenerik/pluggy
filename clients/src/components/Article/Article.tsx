@@ -1,67 +1,76 @@
-import React, { useEffect } from 'react'
-import { createSemanticDiagnosticsBuilderProgram } from 'typescript'
-import { getInfoDollarBlue } from '../../redux/actions'
-import { useAppSelector, useAppDispatch } from '../../redux/hooks'
-import style from "./Article"
+import { useAppSelector } from '../../redux/hooks'
+import style from "./Article.module.css"
 
+interface props {
+  actual:string;
+}
 
-const Article = () => {
+const Article = ({actual}:props): JSX.Element => {
 
  
 
   const {quotes, average, slippage} = useAppSelector(state=>state)
 
-  const dispatch = useAppDispatch()
-
-  useEffect(()=>{
-    dispatch( getInfoDollarBlue())
-  },[dispatch])
+  if(!actual) return <span>cargando...</span>
 
   return (
     <div>
-      <div>
-        <span>quotes</span>
+      {
+        actual ==="quotes"?
+      <div className={style.contenedorCotiz}>
+        <span>Cotizaciónes</span>
         <br />
-        {quotes?.map((e:any)=>{
+        <br />
+        {quotes?.map((e:any,i:number)=>{
           return(
-            <>
-              <span>{e.buy_price}</span>
+            <div className={style.cardQuotes} key={i}>
+              <h4>Fuente: </h4>
+              <a href={e.source} target="_BLANK" rel="noreferrer">
+                <h4>{e.name}</h4>
+              </a>
+              <span></span>
               <br />
-              <span>{e.sell_price}</span>
+              <h4>Compra: </h4>
+              <span>U$D {e.buy_price}</span>
               <br />
-              <span>{e.source}</span>
+              <h4>Venta: </h4>
+              <span>U$D {e.sell_price}</span>
               <br />
-            </>
+              <br />
+            </div>
           )
         })}
         <br />
         <br />
       </div>
-      <div>
-        <span>slippage</span>
-        <br />
-        {slippage?.map((e:any)=>{
+      :actual==="slippage"?
+        <div>
+          <span>slippage</span>
+          <br />
+          {slippage?.map((e:any)=>{
           return(
             <>
-              <span>{e.buy_price_slippage}</span>
-              <br />
-              <span>{e.sell_price_slippage}</span>
-              <br />
-              <span>{e.source}</span>
-              <br />
-            </>
+            <span>{e.buy_price_slippage}</span>
+            <br />
+            <span>{e.sell_price_slippage}</span>
+            <br />
+            <span>{e.source}</span>
+            <br />
+          </>
           )
-        })}
-        <br />
-        <br />
-      </div>
-      <div>
-      <span>average</span>
-      <br />
-      <span>{average.average_buy_price}</span>
-      <br />
-      <span>{average.average_sell_price}</span>
-      </div>
+          })}
+          <br />
+          <br />
+        </div>
+        :
+        <div>
+            <span>average</span>
+          <br />
+          <span>{average.average_buy_price}</span>
+          <br />
+          <span>{average.average_sell_price}</span>
+          </div> 
+        }
     </div>
   )
 }
