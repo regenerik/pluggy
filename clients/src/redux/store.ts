@@ -9,4 +9,12 @@ const store =createStore(
 
 )
 
+//typescripea la store y la guarda en una variable RootState + exportacion
+export type RootState = ReturnType<typeof store.getState>
+//Aclara que es lo que va a despachar el dispatch , formato { type: any , payload:any }
+export type AppDispatch = typeof store.dispatch
+//Lo siguiente viene en el hooks...
+
+
+
 export default store;
