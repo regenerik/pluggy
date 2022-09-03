@@ -34,12 +34,12 @@ const Article = ({actual}:props): JSX.Element => {
 
               <div className={style.col2}>
                 <h4>Compra: </h4>
-                <span>U$D {e.buy_price}</span>
+                <span>$ {e.buy_price}</span>
               </div>
 
               <div className={style.col3}>
                 <h4>Venta: </h4>
-                <span>U$D {e.sell_price}</span>
+                <span>$ {e.sell_price}</span>
               </div>
 
             </div>
@@ -69,11 +69,11 @@ const Article = ({actual}:props): JSX.Element => {
         </div>
         :
         <div>
-            <span>average</span>
+            <p>Promedio</p>
           <br />
-          <span>{average.average_buy_price}</span>
+          <span>Compra: $ {average.average_buy_price}</span>
           <br />
-          <span>{average.average_sell_price}</span>
+          <span>Venta: $ {average.average_sell_price}</span>
           </div> 
         }
     </div>

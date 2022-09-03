@@ -33,7 +33,7 @@ const Landing = () => {
           <Header />
         </header>
         <nav className={style.navbar}>
-          <Navbar setActual={setActual} />
+          <Navbar setActual={setActual} actual={actual}/>
         </nav>
         <article className={style.content}>
           <Article actual={actual}/>

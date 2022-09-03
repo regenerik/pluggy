@@ -5,8 +5,8 @@ import style from "./Sidebar.module.css"
 const Sidebar = () => {
   return (
     <div className={style.sideBarContainer}>
-      <p className={style.frase}>Acá corroboraría mis dólares
-        si tuviera dólares...
+      <p className={style.frase}>Acá corroboraría mis dólares.
+        Si tuviera dólares...
       </p>
     </div>
   )
