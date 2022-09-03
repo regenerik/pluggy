@@ -15,7 +15,7 @@ const Header = () => {
         onMouseLeave={() => setLogoState(logo)}
         onMouseOver={() => setLogoState(logo_gif)}
         alt="logo"
-        no-repeat/>
+        />
     </div>
     
   )

@@ -18,25 +18,30 @@ const Article = ({actual}:props): JSX.Element => {
       {
         actual ==="quotes"?
       <div className={style.contenedorCotiz}>
-        <span>Cotizaciónes</span>
+
         <br />
         <br />
         {quotes?.map((e:any,i:number)=>{
           return(
             <div className={style.cardQuotes} key={i}>
-              <h4>Fuente: </h4>
-              <a href={e.source} target="_BLANK" rel="noreferrer">
-                <h4>{e.name}</h4>
-              </a>
-              <span></span>
-              <br />
-              <h4>Compra: </h4>
-              <span>U$D {e.buy_price}</span>
-              <br />
-              <h4>Venta: </h4>
-              <span>U$D {e.sell_price}</span>
-              <br />
-              <br />
+
+              <div className={style.col1}>
+                <h4>Fuente: </h4>
+                <a href={e.source} target="_BLANK" rel="noreferrer">
+                  <h4>{e.name}</h4>
+                </a>
+              </div>
+
+              <div className={style.col2}>
+                <h4>Compra: </h4>
+                <span>U$D {e.buy_price}</span>
+              </div>
+
+              <div className={style.col3}>
+                <h4>Venta: </h4>
+                <span>U$D {e.sell_price}</span>
+              </div>
+
             </div>
           )
         })}

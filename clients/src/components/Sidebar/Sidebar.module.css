@@ -1,0 +1,14 @@
+.sideBarContainer{
+    height: 100%;
+    width: 100%;
+    background-image: url(../../images/tipo.png);
+    background-position: -22vh bottom;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+}
+
+.frase{
+    padding: 1vh;
+    font-size: xx-large;
+    font-family: 'Courier New', Courier, monospace;
+}
