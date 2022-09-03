@@ -10,17 +10,13 @@ const Navbar = ({setActual}:props) => {
 
   return (
     <div className={style.Nav}>
-          <ul>
-              <li>
-                <button onClick={()=>setActual("quotes")}>Quotes</button>
-              </li>
-              <li>
-                <button onClick={()=>setActual("average")}>Average</button>
-              </li>
-              <li>
+
+              <button onClick={()=>setActual("quotes")}>Quotes</button>
+
+              <button onClick={()=>setActual("average")}>Average</button>
+
               <button onClick={()=>setActual("slippage")}>Slip Page</button>
-              </li>
-            </ul>
+
     </div>
   )
 }

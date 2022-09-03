@@ -2,8 +2,16 @@
     display: flex;
     justify-content: space-around;
     list-style-type:none;
+    list-style:none;
     padding:0;
     margin:0;
+}
+
+.Nav{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap:1vh;
 }
 
 @media (min-width:500px){
