@@ -100,7 +100,7 @@ function getAmbitoData() {
                         buy_price: parseFloat(ambitoData.compra.replace(",", ".")),
                         sell_price: parseFloat(ambitoData.venta.replace(",", ".")),
                         source: ambitoUrlShow,
-                        name: "Ámbito Financiero"
+                        name: "Ámbito"
                     };
                     return [2 /*return*/, articulo];
                 case 2:

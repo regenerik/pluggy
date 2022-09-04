@@ -1,3 +1,4 @@
+import { SpaRounded } from '@material-ui/icons';
 import { useAppSelector } from '../../redux/hooks'
 import style from "./Article.module.css"
 
@@ -12,34 +13,30 @@ const Article = ({actual}:props): JSX.Element => {
   const {quotes, average, slippage} = useAppSelector(state=>state)
 
   if(!actual) return <span>cargando...</span>
-
+  //Segun "actual", contenido de Article por Ternario.
   return (
     <div>
       {
         actual ==="quotes"?
       <div className={style.contenedorCotiz}>
-
-        <br />
-        <br />
         {quotes?.map((e:any,i:number)=>{
           return(
             <div className={style.cardQuotes} key={i}>
-
               <div className={style.col1}>
-                <h4>Fuente: </h4>
+                <span className={style.titulo}>Fuente: </span>
                 <a href={e.source} target="_BLANK" rel="noreferrer">
-                  <h4>{e.name}</h4>
+                  <span className={style.titulo}>{e.name}</span>
                 </a>
               </div>
 
               <div className={style.col2}>
-                <h4>Compra: </h4>
-                <span>$ {e.buy_price}</span>
+                <span className={style.titulo}>Compra: </span>
+                <span className={style.titulo}>$ {e.buy_price}</span>
               </div>
 
               <div className={style.col3}>
-                <h4>Venta: </h4>
-                <span>$ {e.sell_price}</span>
+                <span className={style.titulo}>Venta: </span>
+                <span className={style.titulo}>$ {e.sell_price}</span>
               </div>
 
             </div>
@@ -50,31 +47,31 @@ const Article = ({actual}:props): JSX.Element => {
       </div>
       :actual==="slippage"?
         <div>
-          <span>slippage</span>
-          <br />
-          {slippage?.map((e:any)=>{
+          {slippage?.map((e:any,i:any)=>{
           return(
-            <>
-            <span>{e.buy_price_slippage}</span>
-            <br />
-            <span>{e.sell_price_slippage}</span>
-            <br />
-            <span>{e.source}</span>
-            <br />
-          </>
+            <div key={i} className={style.cards}>
+              <span className={style.titulo}>Fuente: {e.name}</span>
+              <br />
+              <span className={style.titulo}>Diferencia precio de compra: $ {e.buy_price_slippage}</span>
+              <br />
+              <span className={style.titulo}>Diferencia precio de venta: $ {e.sell_price_slippage}</span>
+              <br />
+              <br />
+              <br />
+            </div>
           )
           })}
           <br />
           <br />
         </div>
         :
-        <div>
-            <p>Promedio</p>
+        <div className={style.cards}>
+            <p className={style.titulo}>Promedios</p>
           <br />
-          <span>Compra: $ {average.average_buy_price}</span>
+          <span className={style.titulo}>Compra: $ {average.average_buy_price}</span>
           <br />
-          <span>Venta: $ {average.average_sell_price}</span>
-          </div> 
+          <span className={style.titulo}>Venta: $ {average.average_sell_price}</span>
+        </div> 
         }
     </div>
   )

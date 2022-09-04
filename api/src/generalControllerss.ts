@@ -45,7 +45,7 @@ async function getAmbitoData():Promise<Article |undefined>{
             buy_price:parseFloat(ambitoData.compra.replace(",",".")),
             sell_price:parseFloat(ambitoData.venta.replace(",",".")),
             source: ambitoUrlShow,
-            name:"Ámbito Financiero"
+            name:"Ámbito"
         }
         return articulo
     }catch(err:any){
